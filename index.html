@@ -3,10 +3,243 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Personal Website</title>
+    <title>Your Name | Department of Mathematics</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;0,500;1,400&family=Latin+Modern+Roman&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        :root {
+            --bg-color: #fcfbf9;
+            --text-color: #222222;
+            --accent-color: #003366; /* Academic Blue */
+            --light-gray: #ededed;
+        }
+
+        body {
+            font-family: 'Fira Sans', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        header {
+            border-bottom: 1px solid var(--text-color);
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2.5rem;
+            margin: 0 0 10px 0;
+            color: var(--accent-color);
+        }
+
+        h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.6rem;
+            border-bottom: 1px solid var(--light-gray);
+            padding-bottom: 5px;
+            margin-top: 40px;
+            color: var(--accent-color);
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: #555;
+            margin: 0;
+        }
+
+        .math-font {
+            font-family: 'Latin Modern Roman', Georgia, serif;
+        }
+
+        nav {
+            margin-top: 15px;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-right: 20px;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+            color: var(--accent-color);
+        }
+
+        .profile-section {
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+
+        /* Fallback placeholder for profile photo */
+        .profile-photo {
+            width: 180px;
+            height: 220px;
+            background-color: var(--light-gray);
+            border: 1px solid #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .publication-item, .teaching-item {
+            margin-bottom: 15px;
+            padding-left: 15px;
+            border-left: 2px solid var(--light-gray);
+        }
+
+        .paper-title {
+            font-weight: 500;
+        }
+
+        .links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .links a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid var(--light-gray);
+            font-size: 0.85rem;
+            color: #777;
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            .profile-section {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to My Website!</h1>
-    <p>Hi, I'm [Your Name]. I am building my personal website using GitHub Pages.</p>
+
+<div class="container">
+
+    <header>
+        <h1>Your Name</h1>
+        <p class="subtitle">Postgraduate Researcher / PhD Candidate in Pure Mathematics</p>
+        <p class="subtitle" style="font-size: 0.95rem;">Department of Mathematics | University of Somewhere</p>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#research">Research</a>
+            <a href="#publications">Publications</a>
+            <a href="#teaching">Teaching</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="about" class="profile-section">
+            <img class="profile-photo" src="https://via.placeholder.com/180x220" alt="Your Name Profile Photo">
+            <div>
+                <h2>About Me</h2>
+                <p>I am a PhD student in the Mathematics Department at the University of Somewhere, advised by Prof. Emmy Noether. My primary interests lie at the intersection of algebraic geometry and number theory.</p>
+                <p>Before coming to Somewhere, I completed my Master's degree at University X and my Bachelor's at University Y.</p>
+                <p><a href="#" style="color: var(--accent-color); font-weight: 500;">Download my CV (PDF)</a></p>
+            </div>
+        </section>
+
+        <section id="research">
+            <h2>Research Interests</h2>
+            <p>Broadly, I am interested in arithmetic geometry. More specifically, my current research focuses on:</p>
+            <ul>
+                <li>The geometry of moduli spaces of sheaves.</li>
+                <li>Rational points on algebraic varieties.</li>
+                <li>Applications of the Langlands program.</li>
+            </ul>
+            <p>An example of an object I frequently study is the local zeta function, defined for a variety $X$ over a finite field $\mathbb{F}_q$ as:</p>
+            <div class="math-font" style="margin: 20px 0; text-align: center;">
+                $$Z(X/\mathbb{F}_q, t) = \exp\left( \sum_{m=1}^{\infty} N_m \frac{t^m}{m} \right)$$
+            </div>
+            <p>where $N_m$ denotes the number of points on $X$ defined over the extension $\mathbb{F}_{q^m}$.</p>
+        </section>
+
+        <section id="publications">
+            <h2>Publications & Preprints</h2>
+            
+            <div class="publication-item">
+                <span class="paper-title">On the $K$-Theory of Certain Derived Categories</span> (with A. Collaborator)<br>
+                <em>Submitted / Preprint (2026).</em><br>
+                <span class="links"><a href="https://arxiv.org">[arXiv:xxxx.xxxxx]</a></span>
+            </div>
+
+            <div class="publication-item">
+                <span class="paper-title">Cohomological Invariants of Algebraic Stacks</span><br>
+                <em>Journal of Pure and Applied Algebra, Vol. 42 (2025).</em><br>
+                <span class="links"><a href="#">[Journal Link]</a> &middot; <a href="#">[PDF]</a></span>
+            </div>
+        </section>
+
+        <section id="teaching">
+            <h2>Teaching</h2>
+            
+            <h3>University of Somewhere</h3>
+            <div class="teaching-item">
+                <strong>MATH 301: Abstract Algebra I</strong> (Fall 2025) <br>
+                Graduate Teaching Assistant. Led weekly problem sessions and graded assignments on group and ring theory.
+            </div>
+            
+            <div class="teaching-item">
+                <strong>MATH 102: Linear Algebra and Differential Equations</strong> (Spring 2025) <br>
+                Recitation Instructor.
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p><strong>Email:</strong> your.email [at] university.edu</p>
+            <p><strong>Office:</strong> Room 404, Riemann Hall</p>
+            <p><strong>Mailing Address:</strong><br>
+               Department of Mathematics<br>
+               University of Somewhere<br>
+               123 Euler Way, Math City, MC 10101
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Your Name. Powered by GitHub Pages. Last updated: June 2026.</p>
+    </footer>
+
+</div>
+
 </body>
 </html>
