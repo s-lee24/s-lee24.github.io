@@ -171,28 +171,41 @@
             </div>
 
             <div class="post-content">
-                <p>Spectral sequences are notoriously intimidating when you first encounter them in algebraic topology or homological algebra. They are often described as a "black box" machinery of pages computing successive approximations of homology groups. Today, I want to share a geometric scratchpad model I use to keep track of the differentials without losing my sanity.</p>
-                
-                <p>Recall that a homological spectral sequence consists of a collection of abelian groups (or modules) $E_{p,q}^r$ for $r \geq 1$, equipped with differentials of bidegree $(-r, r-1)$:</p>
+                <p>
+                    Let $G$ be a finite group and $(\mathbb{C}[G], \rho)$ be the (left) regular representation of $G$. By Maschke's theorem, the representation is semisimple and hence can be expressed as
+                </p>
 
                 <div>
-                    $$d^r: E_{p,q}^r \to E_{p-r, \, q+r-1}^r$$
+                    $$\mathbb{C}[G] \cong V_1^{\dim V_1}\oplus\cdots\oplus V_m^{\dim V_m}.$$
                 </div>
 
-                <p>The key property is that each page is the homology of the preceding one with respect to this differential. That is, we have the core relationship:</p>
+                <p>
+                    What makes $(\mathbb{C}[G],\rho)$ a "fundamental" representation is that (1) $\dim\text{Hom}(\mb{C}[G],V) = \dim V$ and hence, (2) any irreducible representation of $G$ is included in the above decomposition.
+                </p>
 
-                <!-- We wrap the theorem/definition in a div box to highlight it structurally -->
-                <div class="math-box">
-                    <strong>Definition:</strong> The next page of the sequence is determined by the kernel and image of the current page's differential:
-                    $$E_{p,q}^{r+1} \cong \frac{\ker(d^r: E_{p,q}^r \to E_{p-r, q+r-1}^r)}{\text{im}(d^r: E_{p+r, q-r+1}^r \to E_{p,q}^r)}$$
+                <p>
+                    <strong>Proof.</strong> Suppose $W$ is an irreducible representation of $G$ and is not isomorphic to any of the $V_i$'s. Then
+                </p>
+
+                <div>
+                    $$\dim\text{Hom}_G(\mathbb{C}[G], W) = \sum_{i=1}^m \dim V_i \dim\text{Hom}_G(V_i,W) = 0$$
                 </div>
 
-                <h3>The Grid Mapping</h3>
-                <p>To visualize the movement of the $d^r$ maps, think of pages as a stack of grids moving through time $r$. On the $E^1$ page, the differentials are purely vertical, dropping down by 1 unit ($d^1: E_{p,q}^1 \to E_{p-1, q}^1$). </p>
+                <p>
+                    by Schur's lemma, and contradicts that $\dim W\ge 1$.
+                </p>
+
+                <p>
+                    Now to a fundamental result:
+                </p>
                 
-                <p>By the time we hit the $E^2$ page, the arrows pivot. They shift left by 2 units and up by 1 unit. As $r \to \infty$, the arrows flatten out completely, eventually leaving us with the stable $E^\infty$ page which allows us to read off the filtration of our target object.</p>
+                <div class="math-box">
+                    <strong>Theorem:</strong> If $G$ is a finite group, the number of irreducible representations (up to isomorphism) is equal to the number of conjugacy classes in $G$.
+                </div>
 
-                <p>In the next post, I will look at how this machinery plays out explicitly for the Serre spectral sequence of a fibration $F \to E \to B$.</p>
+                <p>
+                    <strong>Sketch of Proof.</strong>
+                </p>
             </div>
         </article>
 
