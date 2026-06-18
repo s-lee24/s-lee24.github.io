@@ -204,7 +204,54 @@
                 </div>
 
                 <p>
-                    <strong>Sketch of Proof.</strong>
+                    <strong>Sketch of Proof.</strong> Step 1. Construct a linear isomorphism $\Phi:\mathbb{C}[G]\xrightarrow{\sim} \text{End}(V_1)\oplus\cdots\oplus\text{End}(V_m)$ by extending each $\rho_i: G\to \text{GL}(V_i)$ linearly to $\rho_i:\mathbb{C}[G]\to\text{End}(V_i)$ given by
+                </p>
+
+                <div>
+                    $$\rho_i\left(\sum_{g\in G}a_g g\right) = \sum_{g\in G} a_g\rho_i(g)\in \text{End}(V_i),$$
+                </div>
+
+                <p>
+                    then putting together the extended $\rho_i$'s: $\Phi = (\rho_1,...,\rho_m)$.
+                </p>
+
+                <p>
+                    Step 2. But $\Phi$ is not $G$-linear with respect to the left regular representation $(\mathbb{C}[G],\rho)$. To fix this, we observe that
+                </p>
+
+                <div>
+                    $$\Phi(ghg^{-1}) = \bigoplus_{i=1}^m \rho_{\text{End}(V_i)}(g)(\Phi(h)),$$
+                </div>
+
+                <p>
+                    hence motavting the \emph{adjoint representation} $(\mathbb{C}[G],\rho_{ad})$ given by
+                </p>
+
+                <div>
+                    $$\rho_{ad}(g)\left(\sum_{h\in G} a_h h\right) = \sum_{h\in G} a_h ghg^{-1}.$$
+                </div>
+
+                <p>
+                    This makes $\Phi$ become $G$-linear as a map
+                </p>
+
+                <div>
+                    $$\mathbb{C}[G]\xrightarrow{\sim}\bigoplus_{i=1}^m \text{End}(V_i).$$
+                </div>
+
+                <p>
+                    Step 3. Now take $G$-invariants on both sides: RHS givs $m$ by Schur's lemma and LHS should be the number of conjugacy classes in $G$. Indeed:
+                </p>
+
+                <div>
+                    \begin{align*}
+                        f = \sum_{h\in G} a_h h\in (\mathbb{C}[G],\rho_{ad})^G &\iff f = \sum_{h\in G} a_h ghg^{-1} = \sum_{h\in G} a_{g^{-1}hg}h, \ forall g\in G \\
+                        &\iff a_h = a_{g^{-1}hg}, \ \forall g,h\in G.
+                    \end{align*}
+                </div>
+
+                <p>
+                    So $f$ has the same coefficients for $h$'s in the same conjugacy class of $G$. Hence, $(\sum_{g\in\mathcal{C}_i} g)_{i=1}^{m'}$ for conjugacy classes $\mathcal{C}_1,...,\mathcal{C}_{m'}$ of $G$ serves as basis for $(\mathbb{C}[G], \rho_{ad})^G$.
                 </p>
             </div>
         </article>
