@@ -147,6 +147,25 @@
                 text-align: center;
             }
         }
+
+        ol.bracket-countdown {
+            list-style: none;
+            padding-left: 1.5rem;
+        }
+        
+        ol.bracket-countdown {
+            counter-reset: countdown 4; 
+        }
+
+        ol.bracket-countdown li {
+            counter-increment: countdown -1;
+        }
+
+        ol.bracket-countdown li::before {
+            content: "[" counter(countdown) "] ";
+            font-weight: bold;
+        }
+        
     </style>
 </head>
 <body>
@@ -166,11 +185,15 @@
     </header>
 
     <main>
-    <section id="resources">
+    <section id="research">
     
-    <div class="resources-feed">
+    <div class="research-feed">
 
       <p>Here is a list of my publications & preprints:</p>
+
+      <ol class="bracket-countdown">
+          <li><em>Classifying $\lambda$-translators in the Lorentz-Minkowski space</em>, with Marie-Am&eacute;lie Lawn, Miguel Ortega, Preprint (In Progress).</li>
+      </ol>
 
     </section>
 
