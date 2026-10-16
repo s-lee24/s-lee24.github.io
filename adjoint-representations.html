@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adjoint representations | Seunghyun Lee</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            output: { displayOverflow: 'linebreak' }
+        };
+    </script>
+    <!-- MathJax 4 lets long inline formulas wrap across lines like ordinary text -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/@mathjax/mathjax-tex-font@4/tex-mml-chtml-mathjax-tex.js"></script>
+
+    <style>
+        :root {
+            --bg-color: #fcfbf9;
+            --text-color: #222222;
+            --accent-color: #003366;
+            --light-gray: #ededed;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Fira Sans', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 760px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        a { color: var(--accent-color); }
+
+        .back {
+            display: inline-block;
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 28px;
+        }
+        .back:hover { text-decoration: underline; }
+
+        h1 {
+            font-family: 'Fira Sans', sans-serif;
+            font-weight: 500;
+            font-size: 2rem;
+            line-height: 1.2;
+            color: var(--accent-color);
+            margin: 0 0 6px;
+        }
+
+        .post-meta {
+            color: #777;
+            font-size: 0.95rem;
+            margin-bottom: 28px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        p { margin: 0 0 1em; }
+
+        mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+
+        .math-box {
+            border-left: 3px solid var(--accent-color);
+            background: #f2f5f9;
+            padding: 12px 16px;
+            margin: 1.2em 0;
+        }
+
+        /* Go-to-top button (same as the main page) */
+        #toTop {
+            position: fixed; right: 24px; bottom: 24px;
+            width: 44px; height: 44px; border-radius: 50%;
+            border: 1px solid #ccc; background: #fff; color: var(--accent-color);
+            font-size: 1.2rem; line-height: 1; cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,.08);
+            opacity: 0; pointer-events: none; transition: opacity .25s;
+        }
+        #toTop.show { opacity: 1; pointer-events: auto; }
+        #toTop:hover { border-color: var(--accent-color); }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 1.7rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <a class="back" href="../index.html">&larr; Return to main page</a>
+
+    <article>
+        <h1>Adjoint representations</h1>
+        <div class="post-meta">June 18, 2026</div>
+
+        <p>Let $G$ be a finite group and $(\mathbb{C}[G], \rho)$ be the (left) regular representation of $G$. By Maschke's theorem, the representation is semisimple and hence can be expressed as</p>
+        $$\mathbb{C}[G] \cong V_1^{\dim V_1}\oplus\cdots\oplus V_m^{\dim V_m}.$$
+
+        <p>What makes $(\mathbb{C}[G],\rho)$ a "fundamental" representation is that (1) $\dim\text{Hom}_G(\mathbb{C}[G],V) = \dim V$ and hence, (2) any irreducible representation of $G$ is included in the above decomposition.</p>
+
+        <p><strong>Proof.</strong> Suppose $W$ is an irreducible representation of $G$ and is not isomorphic to any of the $V_i$'s. Then</p>
+        $$\dim\text{Hom}_G(\mathbb{C}[G], W) = \sum_{i=1}^m \dim V_i \dim\text{Hom}_G(V_i,W) = 0$$
+        <p>by Schur's lemma, which contradicts $\dim W\ge 1$. $\blacksquare$</p>
+
+        <p>Now to a fundamental result:</p>
+
+        <div class="math-box">
+            <strong>Theorem.</strong> <em>If $G$ is a finite group, the number of irreducible representations (up to isomorphism) is equal to the number of conjugacy classes in $G$.</em>
+        </div>
+
+        <p><strong>Sketch of Proof.</strong> Step 1. Construct a linear isomorphism $\Phi:\mathbb{C}[G]\xrightarrow{\sim} \text{End}(V_1)\oplus\cdots\oplus\text{End}(V_m)$ by extending each $\rho_i: G\to \text{GL}(V_i)$ linearly to $\rho_i:\mathbb{C}[G]\to\text{End}(V_i)$ given by</p>
+        $$\rho_i\left(\sum_{g\in G}a_g g\right) = \sum_{g\in G} a_g\rho_i(g)\in \text{End}(V_i),$$
+        <p>then putting together the extended $\rho_i$'s: $\Phi = (\rho_1,\dots,\rho_m)$.</p>
+
+        <p>Step 2. But $\Phi$ is not $G$-linear with respect to the left regular representation $(\mathbb{C}[G],\rho)$. To fix this, we observe that</p>
+        $$\Phi(ghg^{-1}) = \bigoplus_{i=1}^m \rho_{\text{End}(V_i)}(g)(\Phi(h)),$$
+        <p>hence motivating the <em>adjoint representation</em> $(\mathbb{C}[G],\rho_{ad})$ given by</p>
+        $$\rho_{ad}(g)\left(\sum_{h\in G} a_h h\right) = \sum_{h\in G} a_h ghg^{-1}.$$
+        <p>This makes $\Phi$ $G$-linear as a map</p>
+        $$\mathbb{C}[G]\xrightarrow{\sim}\bigoplus_{i=1}^m \text{End}(V_i).$$
+
+        <p>Step 3. Now take $G$-invariants on both sides: the RHS gives $m$ by Schur's lemma, and the LHS should be the number of conjugacy classes in $G$. Indeed:</p>
+        \begin{align*}
+            f = \sum_{h\in G} a_h h\in (\mathbb{C}[G],\rho_{ad})^G &\iff f = \sum_{h\in G} a_h ghg^{-1} = \sum_{h\in G} a_{g^{-1}hg}h, \ \forall g\in G \\
+            &\iff a_h = a_{g^{-1}hg}, \ \forall g,h\in G.
+        \end{align*}
+        <p>So $f$ has the same coefficients for $h$'s in the same conjugacy class of $G$. Hence $\left(\sum_{g\in\mathcal{C}_i} g\right)_{i=1}^{m'}$ for the conjugacy classes $\mathcal{C}_1,\dots,\mathcal{C}_{m'}$ of $G$ is a basis for $(\mathbb{C}[G], \rho_{ad})^G$.</p>
+    </article>
+
+</div>
+
+<button id="toTop" aria-label="Go to top" title="Go to top">&uarr;</button>
+
+<script>
+    var toTop = document.getElementById('toTop');
+    window.addEventListener('scroll', function () {
+        toTop.classList.toggle('show', window.scrollY > 300);
+    }, { passive: true });
+    toTop.addEventListener('click', function () { window.scrollTo(0, 0); });
+</script>
+
+</body>
+</html>
