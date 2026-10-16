@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adjoint representations | Seunghyun Lee</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            output: { displayOverflow: 'linebreak' }
+        };
+    </script>
+    <!-- MathJax 4 lets long inline formulas wrap across lines like ordinary text -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/@mathjax/mathjax-tex-font@4/tex-mml-chtml-mathjax-tex.js"></script>
+
+    <style>
+        :root {
+            --bg-color: #fcfbf9;
+            --text-color: #222222;
+            --accent-color: #003366;
+            --light-gray: #ededed;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Fira Sans', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 760px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        a { color: var(--accent-color); }
+
+        .back {
+            display: inline-block;
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 28px;
+        }
+        .back:hover { text-decoration: underline; }
+
+        h1 {
+            font-family: 'Fira Sans', sans-serif;
+            font-weight: 500;
+            font-size: 2rem;
+            line-height: 1.2;
+            color: var(--accent-color);
+            margin: 0 0 6px;
+        }
+
+        .post-meta {
+            color: #777;
+            font-size: 0.95rem;
+            margin-bottom: 28px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        p { margin: 0 0 1em; }
+
+        mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+
+        .math-box {
+            border-left: 3px solid var(--accent-color);
+            background: #f2f5f9;
+            padding: 12px 16px;
+            margin: 1.2em 0;
+        }
+
+        /* Go-to-top button (same as the main page) */
+        #toTop {
+            position: fixed; right: 24px; bottom: 24px;
+            width: 44px; height: 44px; border-radius: 50%;
+            border: 1px solid #ccc; background: #fff; color: var(--accent-color);
+            font-size: 1.2rem; line-height: 1; cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,.08);
+            opacity: 0; pointer-events: none; transition: opacity .25s;
+        }
+        #toTop.show { opacity: 1; pointer-events: auto; }
+        #toTop:hover { border-color: var(--accent-color); }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 1.7rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <a class="back" href="../index.html">&larr; Return to main page</a>
+
+    <article>
+        <h1>Under construction</h1>
+        <div class="post-meta">Jan 1, 2000</div>
+    </article>
+
+</div>
+
+<button id="toTop" aria-label="Go to top" title="Go to top">&uarr;</button>
+
+<script>
+    var toTop = document.getElementById('toTop');
+    window.addEventListener('scroll', function () {
+        toTop.classList.toggle('show', window.scrollY > 300);
+    }, { passive: true });
+    toTop.addEventListener('click', function () { window.scrollTo(0, 0); });
+</script>
+
+</body>
+</html>
